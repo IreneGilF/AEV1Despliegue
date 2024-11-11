@@ -8,7 +8,7 @@ $palabras = ['elefante', 'jirafa', 'hipopotamo', 'rinoceronte', 'cocodrilo', 'ca
 if (!isset($_SESSION['palabra'])) {
     $_SESSION['palabra'] = $palabras[array_rand($palabras)];
     $_SESSION['vidas'] = 6; // Número máximo de vidas
-    $_SESSION['letras_acertadas'] = str_repeat('?', strlen($_SESSION['palabra']));
+    $_SESSION['letras_acertadas'] = array_fill(0, strlen($_SESSION['palabra']), '?'); // Arreglo de letras acertadas
     $_SESSION['letras_usadas'] = [];
 }
 
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['letra'])) {
 }
 
 // Comprobar si se ha ganado o perdido
-if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
+if ($_SESSION['letras_acertadas'] == str_split($_SESSION['palabra'])) {
     header("Location: ganado.php");
     exit();
 } elseif ($_SESSION['vidas'] <= 0) {
@@ -51,10 +51,11 @@ if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
 <head>
     <meta charset="UTF-8">
     <title>Ahorcado</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <h1>Juego del Ahorcado</h1>
-    <p>Palabra secreta: <?php echo $_SESSION['letras_acertadas']; ?></p>
+    <p>Palabra secreta: <?php echo implode(' ', $_SESSION['letras_acertadas']); ?></p>
     <p>Vidas restantes: <?php echo $_SESSION['vidas']; ?></p>
     <form method="post">
         <label for="letra">Introduce una letra:</label>
