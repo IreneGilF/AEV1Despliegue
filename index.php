@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['letra'])) {
 }
 
 // Comprobar si se ha ganado o perdido
-// Comprobar si se ha ganado o perdido
 if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
     header("Location: ganado.php");
     exit();
