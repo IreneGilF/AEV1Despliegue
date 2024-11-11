@@ -6,12 +6,12 @@ body {
 }
 
 h1 {
-    color: pink;
+    color: #117a65;
     text-align: center;
 }
 
 form {
-    background-color: #ffffff;
+    background-color: #95a5a6;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -35,8 +35,8 @@ input[type="text"] {
 }
 
 button {
-    background-color: #3498db;
-    color: white;
+    background-color:#fce4ec;
+    color: #2e4053;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -46,11 +46,11 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #d84878 ;
 }
 
 p {
     font-size: 18px;
     text-align: center;
-    color: brown;
+    color: #f5b041 ;
 }
